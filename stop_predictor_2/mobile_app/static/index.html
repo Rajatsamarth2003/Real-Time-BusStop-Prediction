@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Stop Predictor - Accessible</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚌 Bus Stop Predictor</h1>
+            <p>AI-powered next stop prediction for visually impaired users</p>
+        </div>
+
+        <div class="content">
+            <div class="location-selector">
+                <label for="demoLocation">Select Demo Location:</label>
+                <select id="demoLocation">
+                    <option value="kashmere_gate">Kashmere Gate (ISBT)</option>
+                    <option value="connaught_place">Connaught Place</option>
+                    <option value="india_gate">India Gate</option>
+                    <option value="red_fort">Red Fort</option>
+                    <option value="aiims">AIIMS</option>
+                </select>
+                
+                <button class="btn-location" onclick="predictFromCurrentLocation()" id="currentLocationBtn">
+                    📍 Use My Current Location
+                </button>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+            <div class="location-status" id="locationStatus" style="display: none;"></div>
+
+            <div class="route-info">
+                <h3>Accessible Features</h3>
+                <p>• Automatic voice announcements in English and Hindi<br>
+                   • Current location detection<br>
+                   • High contrast design for low vision<br>
+                   • Simple, large touch targets</p>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Finding nearest stop and predicting...</p>
+            </div>
+
+            <div class="location-info" id="locationInfo" style="display: none;">
+                <h4>📍 Current Location</h4>
+                <p id="nearestStopInfo">Finding nearest stop...</p>
+            </div>
+
+            <div class="prediction-card" id="predictionCard">
+                <h3>Next Stop Prediction</h3>
+                <div class="stop-name">
+                    <span id="englishStop">-</span>
+                    <span class="hindi-name" id="hindiStop">-</span>
+                </div>
+                <div class="confidence" id="confidence">Confidence: 0%</div>
+                
+                <div class="audio-controls">
+                    <div class="auto-audio-notice">
+                        🔊 Announcements will play automatically in both languages
+                    </div>
+                    <button class="btn btn-success" onclick="playCurrentAudio()">
+                        🔄 Play Announcements Again
+                    </button>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" onclick="predictStop()" id="predictBtn">
+                    🔮 Predict From Demo Location
+                </button>
+            </div>
+
+            <div class="demo-info">
+                <strong>Accessibility Mode:</strong> Designed for visually impaired users with automatic dual-language audio announcements and voice feedback.
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
